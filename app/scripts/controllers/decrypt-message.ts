@@ -89,11 +89,15 @@ export default class DecryptMessageController extends BaseControllerV2<
   DecryptMessageControllerState,
   DecryptMessageControllerMessenger
 > {
+  hub: EventEmitter;
+
   private _getState: () => any;
 
   private _keyringController: KeyringController;
 
   private _metricsEvent: (payload: any, options?: any) => void;
+
+  private _decryptMessageManager: DecryptMessageManager;
 
   /**
    * Construct a DecryptMessage controller.
